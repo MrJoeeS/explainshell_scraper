@@ -9,14 +9,14 @@ import bs4 as bs
 
 output = []
 
-base_url = 'https://explainshell.com/explain'
+base_url = 'https://explainshell.com'
 
 user_input = input("Type what you want to search in Explain Shell: ")
 
 #URL encoding the user input
 user_input_changed = urllib.parse.quote(user_input)
 
-r = requests.get(base_url + "?cmd=" + user_input_changed)
+r = requests.get(base_url + "/explain?cmd=" + user_input_changed)
 
 #creating bs4 object to parse through
 soup = bs.BeautifulSoup(r.text, 'html.parser')
